@@ -21,8 +21,7 @@ Uygulamanın geliştirilmesinde modern yazılım prensiplerine ve güvenli kodla
 
 | Ana Menü (Bölgeler) | Hareket Listesi (Dinamik) |
 | :---: | :---: |
-| <img src="ekran_goruntusu_1.png" width="280"> | <img src="ekran_goruntusu_2.png" width="280"> |
+| <img src="https://github.com/user-attachments/assets/053f9f59-4459-49cd-8e66-d4e58faa827d" width="280"> | <img src="https://github.com/user-attachments/assets/144f07c8-4321-4b5d-93f1-f8dc11fa7c21" width="280"> |
 
 ---
-*Bu proje, modern mobil uygulama geliştirme pratiklerini ve ORM veritabanı yönetim sistemlerini uygulamalı olarak öğrenmek amacıyla geliştirilmeye devam etmektedir.*<img width="616" height="1286" alt="ekran_goruntusu_2" src="https://github.com/user-attachments/assets/144f07c8-4321-4b5d-93f1-f8dc11fa7c21" />
-<img width="616" height="1288" alt="ekran_goruntusu_1" src="https://github.com/user-attachments/assets/053f9f59-4459-49cd-8e66-d4e58faa827d" />
+*Bu proje, modern mobil uygulama geliştirme pratiklerini ve ORM veritabanı yönetim sistemlerini uygulamalı olarak öğrenmek amacıyla geliştirilmeye devam etmektedir.*
