@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntrenmanTakipApp.HareketEklePage"
+             BackgroundColor="#282b30"
+             Title="Yeni Hareket Ekle">
+
+    <VerticalStackLayout Padding="30" Spacing="20">
+
+        <Label Text="Hareketin Adı:"
+               TextColor="White"
+               FontSize="18"
+               FontAttributes="Bold" />
+
+        <Entry x:Name="HareketAdiEntry"
+               Placeholder="Örn: Lat Pulldown"
+               PlaceholderColor="#94a3b8"
+               TextColor="White"
+               BackgroundColor="#36393e"
+               ClearButtonVisibility="WhileEditing" />
+
+        <Button Text="Kaydet"
+                BackgroundColor="#8b5cf6"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HeightRequest="50"
+                Margin="0, 20, 0, 0"
+                Clicked="OnKaydetClicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

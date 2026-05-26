@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AntrenmanTakipApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AntrenmanTakipApp"
+    Title="AntrenmanTakipApp"
+    Shell.FlyoutBehavior="Disabled"
+    
+    Shell.BackgroundColor="#1e2124"
+    
+    Shell.TitleColor="White"
+    
+    Shell.TabBarBackgroundColor="#1e2124"
+    Shell.TabBarUnselectedColor="White"
+    Shell.TabBarTitleColor="White">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>
