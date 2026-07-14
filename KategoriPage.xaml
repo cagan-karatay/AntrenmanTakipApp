@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntrenmanTakipApp.KategoriPage"
+             BackgroundColor="#282b30">
+
+    <ScrollView>
+        <VerticalStackLayout x:Name="AnaListe" Padding="30, 0, 30, 30" Spacing="10" VerticalOptions="Start">
+
+            <Label Text="Antrenman Ekleme" TextColor="White" Style="{StaticResource SubHeadline}" SemanticProperties.HeadingLevel="Level2" />
+
+            <Border ClassId="Chest" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="15" Spacing="15" VerticalOptions="Center">
+                    <Image Source="chest.png" HeightRequest="80" WidthRequest="80" />
+                    <Label Text="Chest" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border ClassId="Back" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="15" Spacing="15" VerticalOptions="Center">
+                    <Image Source="back.png" HeightRequest="80" WidthRequest="80" />
+                    <Label Text="Back" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border ClassId="Legs" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+                    <Image Source="legs.png" HeightRequest="70" WidthRequest="70" />
+                    <Label Text="Legs" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border ClassId="Shoulders" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+                    <Image Source="shoulders.png" HeightRequest="70" WidthRequest="70" />
+                    <Label Text="Shoulders" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border ClassId="Biceps" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+                    <Image Source="biceps.png" HeightRequest="70" WidthRequest="70" />
+                    <Label Text="Biceps" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border ClassId="Triceps" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+                    <Image Source="triceps.png" HeightRequest="70" WidthRequest="70" />
+                    <Label Text="Triceps" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border ClassId="Wrist" BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBolgeTapped" />
+                </Border.GestureRecognizers>
+                <HorizontalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+                    <Image Source="wrist.png" HeightRequest="70" WidthRequest="70" />
+                    <Label Text="Wrist" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

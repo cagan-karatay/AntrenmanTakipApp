@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntrenmanTakipApp.GrafikView"
+             BackgroundColor="#282b30">
+
+    <Grid RowDefinitions="Auto, Auto, *" Margin="0,15,0,0">
+
+        <Border Grid.Row="0" BackgroundColor="#36393e" StrokeThickness="0" Margin="20,0,20,15" HeightRequest="50">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="*, *, *">
+
+                <Border x:Name="BtnGunlukBorder" Grid.Column="0" BackgroundColor="#4e535b" StrokeThickness="0" Padding="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSekmeTapped" CommandParameter="Gunluk" />
+                    </Border.GestureRecognizers>
+                    <Label x:Name="LblGunluk" Text="Günlük" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+
+                <Border x:Name="BtnAylikBorder" Grid.Column="1" BackgroundColor="Transparent" StrokeThickness="0" Padding="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSekmeTapped" CommandParameter="Aylik" />
+                    </Border.GestureRecognizers>
+                    <Label x:Name="LblAylik" Text="Aylık" TextColor="#94a3b8" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+
+                <Border x:Name="BtnYillikBorder" Grid.Column="2" BackgroundColor="Transparent" StrokeThickness="0" Padding="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSekmeTapped" CommandParameter="Yillik" />
+                    </Border.GestureRecognizers>
+                    <Label x:Name="LblYillik" Text="Yıllık" TextColor="#94a3b8" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Grid>
+        </Border>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="10">
+            <HorizontalStackLayout Margin="25,0,20,0" Spacing="10">
+                <Label x:Name="ZamanBaslikLabel" Text="2026 - Haziran" TextColor="#22ff00" FontAttributes="Bold" FontSize="18">
+                    <Label.Shadow>
+                        <Shadow Brush="#22ff00" Offset="0,0" Radius="15" Opacity="0.8" />
+                    </Label.Shadow>
+                </Label>
+            </HorizontalStackLayout>
+
+            <CollectionView x:Name="TimelineListesi" HeightRequest="65" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border WidthRequest="{Binding Width}" HeightRequest="60" BackgroundColor="{Binding BgColor}" Stroke="{Binding BorderColor}" StrokeThickness="2" Padding="0" Margin="10,0,0,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20" />
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTimelineItemTapped" />
+                            </Border.GestureRecognizers>
+                            <Label Text="{Binding Text}" TextColor="{Binding TextColor}" FontSize="{Binding FontSize}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="2" Margin="20,15,20,0" VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout x:Name="AnaGrafikKonteyneri" Spacing="20" Padding="0,0,0,30">
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentView>

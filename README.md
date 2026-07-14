@@ -1,27 +1,38 @@
-# 🏋️‍♂️ AntrenmanTakipApp
+# 🏋️‍♂️ Antrenman Takip App (Fitness Tracker)
 
-.NET MAUI ve SQLite kullanılarak geliştirilmiş, modern ve göz yormayan Discord koyu temasına (Dark Theme) sahip kişisel antrenman ve hareket takip uygulaması.
+Modern, karanlık/neon temalı ve tamamen performansa odaklı kişisel antrenman takip uygulaması. .NET MAUI ve C# kullanılarak, sıfırdan "Mobile-First" (Önce Mobil) mantığıyla geliştirilmiştir.
 
-## 🚀 Özellikler
-
-- **Dinamik Hareket Yönetimi:** Antrenman hareketlerini kodun içine statik olarak yazmak yerine, uygulama içerisinden dinamik olarak ekleme ve veritabanından anlık listeleme altyapısı.
-- **Bağlam Duyarlı (Context-Aware) Mimari:** Seçilen kas bölgesine (Chest, Back, Legs vb.) göre otomatik algılama yaparak, kullanıcıya tekrar bölge seçtirmeden doğrudan ilgili kategoriye hareket ekleme kolaylığı.
-- **Gelişmiş Kullanıcı Deneyimi (UX):** Kullanıcı akışını kesen eski nesil büyük onay kutuları (Alert) yerine, ekranın altından sessizce beliren modern ve zarif *Toast* bildirimleri.
-- **Discord Esintili Arayüz:** Uzun süreli kullanımlarda göz sağlığını koruyan, estetik koyu gri ve lila renk paleti odaklı arayüz tasarımı.
-
-## 🛠️ Kullanılan Teknolojiler Mimarisi
-
-Uygulamanın geliştirilmesinde modern yazılım prensiplerine ve güvenli kodlama standartlarına sadık kalınmıştır:
-
-- **C# & .NET MAUI (v10.0.60):** Cross-platform (Android & Windows) uyumlu modern arayüz iskeleti.
-- **SQLite ORM (sqlite-net-pcl):** Verilerin telefon hafızasında parametrik ve güvenli bir şekilde saklanmasını sağlayan, SQL Injection açıklarına karşı korumalı yerel veritabanı katmanı.
-- **.NET MAUI Community Toolkit:** Alttan çıkan asenkron Toast bildirimleri ve gelişmiş UI bileşenleri yönetimi.
+Uygulama, spor salonunda kağıt kalem veya karmaşık Excel tabloları kullanma derdine son vererek; setlerinizi, tekrarlarınızı ve kaldırdığınız ağırlıkları milisaniyeler içinde kaydedip grafiksel olarak takip etmenizi sağlar.
 
 ## 📸 Ekran Görüntüleri
 
-| Ana Menü (Bölgeler) | Hareket Listesi (Dinamik) |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/053f9f59-4459-49cd-8e66-d4e58faa827d" width="280"> | <img src="https://github.com/user-attachments/assets/144f07c8-4321-4b5d-93f1-f8dc11fa7c21" width="280"> |
+<p align="center">
+  <img src="Screenshots/1.png" width="22%" />
+  <img src="Screenshots/2.png" width="22%" />
+  <img src="Screenshots/3.png" width="22%" />
+  <img src="Screenshots/4.png" width="22%" />
+</p>
 
----
-*Bu proje, modern mobil uygulama geliştirme pratiklerini ve ORM veritabanı yönetim sistemlerini uygulamalı olarak öğrenmek amacıyla geliştirilmeye devam etmektedir.*
+## 🚀 Öne Çıkan Yeni Özellikler (v1.3 Büyük Güncellemesi)
+
+Uzun bir geliştirme ve test sürecinin ardından, uygulama mimarisi ve arayüzü baştan aşağı yenilendi!
+
+* **Pürüzsüz UI/UX Animasyonları:** Listelerde yükseklik (Height Cache) kilitlenmelerini çözen, setleri silerken veya düzenlerken yukarıdan aşağı süzülen 60FPS "Native" MAUI animasyonları eklendi.
+* **Akıllı APK Parçalama (Architecture Splitting):** Uygulama artık "Fat APK" hantallığından kurtarıldı. Hem modern 64-bit Amiral Gemisi telefonlar (`arm64-v8a`) hem de eski nesil bütçe dostu 32-bit telefonlar (`armeabi-v7a`) için cihaza özel, hafif ve güvenlik duvarlarına takılmayan özel paketleme sistemi kuruldu.
+* **Gelişmiş Geçmiş Takibi & SQLite Entegrasyonu:** Geçmiş günlerin verilerine ulaşmak, önceki ayların antrenmanlarına bakmak ve hedeflenen ağırlıkları görmek artık çok daha hızlı ve güvenilir. Zaman çizelgesi (Timeline) sistemi eklendi.
+* **Kusursuz Siberpunk Tema:** Microsoft MAUI'nin varsayılan mor teması, sistemin derinliklerinden (Android Status Bar) tamamen kazınarak yerini uygulamanın ruhuna uygun Koyu Gri (`#1e1e1e`) ve Neon Yeşil (`#22ff00`) siberpunk paletine bıraktı.
+
+## 🛠️ Kullanılan Teknolojiler & Mimari
+
+* **Framework:** .NET 10 & .NET MAUI
+* **Dil:** C# & XAML
+* **Veritabanı:** `sqlite-net-pcl` (Yerel ve Çevrimdışı Depolama)
+* **Mimari Yaklaşım:** MVVM tabanlı esnek yapı, Platform Spesifik Derleme Komutları (Condition Blocks).
+* **Ekstra:** Native Android `colors.xml` manipülasyonu ve özel `Animation` motorları.
+
+## 💡 Kurulum ve Derleme
+Geliştiriciler projeyi klonladıktan sonra kendi hedef cihazlarına (x64, arm64, arm) göre çıktı alabilirler. 
+
+Modern 64-bit cihazlar için Release komutu:
+```bash
+dotnet publish -f net10.0-android -c Release -p:RuntimeIdentifier=android-arm64

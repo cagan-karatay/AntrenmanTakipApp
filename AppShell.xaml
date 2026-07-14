@@ -16,8 +16,8 @@
     Shell.TabBarTitleColor="White">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    Title="Home"
+    ContentTemplate="{DataTemplate local:AnaSayfaWrapper}"
+    Route="AnaSayfaWrapper" />
 
 </Shell>

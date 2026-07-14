@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntrenmanTakipApp.AntrenmanGecmisiPage"
+             BackgroundColor="#282b30"
+             Title="{Binding Ad}">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *">
+
+        <HorizontalStackLayout Grid.Row="0" HorizontalOptions="End" Margin="0,15,20,5">
+            <Button Style="{x:Null}" ImageSource="home.png" Clicked="OnHomeClicked" BackgroundColor="#4e535b" WidthRequest="44" HeightRequest="44" CornerRadius="10" Padding="10">
+                <Button.Shadow>
+                    <Shadow Brush="#22ff00" Opacity="0.4" Radius="10" />
+                </Button.Shadow>
+            </Button>
+        </HorizontalStackLayout>
+
+        <Border Grid.Row="1" BackgroundColor="#36393e" StrokeThickness="0" Margin="20,5,20,10" Padding="15">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="AĞIRLIK (KG)" TextColor="#94a3b8" FontSize="12" HorizontalOptions="Center" />
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" VerticalOptions="Center">
+                    <Button x:Name="BtnMinus" Style="{x:Null}" Text="-" Clicked="OnKgMinusClicked" BackgroundColor="#4e535b" TextColor="White" FontSize="24" FontAttributes="Bold" BorderWidth="0" WidthRequest="50" HeightRequest="50" CornerRadius="25" />
+                    <Entry x:Name="KgEntry" Keyboard="Numeric" TextColor="White" FontSize="24" WidthRequest="80" HorizontalTextAlignment="Center" VerticalOptions="Center" />
+                    <Button x:Name="BtnPlus" Style="{x:Null}" Text="+" Clicked="OnKgPlusClicked" BackgroundColor="#4e535b" TextColor="White" FontSize="24" FontAttributes="Bold" BorderWidth="0" WidthRequest="50" HeightRequest="50" CornerRadius="25" />
+                </HorizontalStackLayout>
+
+                <Label Text="TEKRAR SEÇ" TextColor="#94a3b8" FontSize="12" HorizontalOptions="Center" />
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                    <Button Style="{x:Null}" Text="8" Clicked="OnRepSelectClicked" BackgroundColor="#282b30" BorderColor="#22ff00" BorderWidth="1" TextColor="White" WidthRequest="60" />
+                    <Button Style="{x:Null}" Text="10" Clicked="OnRepSelectClicked" BackgroundColor="#282b30" BorderColor="#22ff00" BorderWidth="1" TextColor="White" WidthRequest="60" />
+                    <Button Style="{x:Null}" Text="12" Clicked="OnRepSelectClicked" BackgroundColor="#282b30" BorderColor="#22ff00" BorderWidth="1" TextColor="White" WidthRequest="60" />
+                    <Entry x:Name="TekrarEntry" Keyboard="Numeric" TextColor="White" WidthRequest="50" HorizontalTextAlignment="Center" Placeholder=".." />
+                </HorizontalStackLayout>
+
+                <Button Style="{x:Null}" Text="KAYDET" Clicked="OnKaydetClicked" BackgroundColor="#22ff00" TextColor="#1e1e1e" FontAttributes="Bold" CornerRadius="10" HeightRequest="50">
+                    <Button.Shadow>
+                        <Shadow Brush="#22ff00" Offset="0,0" Radius="10" Opacity="0.3" />
+                    </Button.Shadow>
+                </Button>
+            </VerticalStackLayout>
+        </Border>
+
+        <VerticalStackLayout Grid.Row="2" Margin="0,10,0,10" Spacing="15">
+            <HorizontalStackLayout Margin="25,0,20,0" Spacing="10" VerticalOptions="Center">
+                <Label Text="Geçmiş Setler" TextColor="#ff6a00" FontAttributes="Bold" FontSize="18" VerticalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow Brush="#ff6a00" Offset="0,0" Radius="15" Opacity="0.8" />
+                    </Label.Shadow>
+                </Label>
+                <Label x:Name="AyLabel" Text="Ay" TextColor="#94a3b8" FontAttributes="Bold" FontSize="18" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <CollectionView x:Name="TimelineListesi" HeightRequest="65" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border WidthRequest="60" HeightRequest="60" BackgroundColor="{Binding BgColor}" Stroke="{Binding BorderColor}" StrokeThickness="2" Padding="0" Margin="10,0,0,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="30" />
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTimelineItemTapped" />
+                            </Border.GestureRecognizers>
+                            <Label Text="{Binding Text}" TextColor="{Binding TextColor}" FontSize="{Binding FontSize}" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+        <CollectionView x:Name="GecmisListesi" Grid.Row="3" Margin="20,0,20,20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#36393e" StrokeThickness="0" Margin="0,0,0,10" Padding="15" Opacity="0" TranslationY="-30" Loaded="OnSetCardLoaded" VerticalOptions="Start">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSetTapped" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout Spacing="10">
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Label Text="{Binding Gecmis.SetSayisi, StringFormat='{0}. Set'}" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="{Binding Gecmis.Tekrar, StringFormat='{0} Tekrar'}" TextColor="#94a3b8" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Column="2" Text="{Binding Gecmis.Agirlik, StringFormat='{0} KG'}" TextColor="#22ff00" FontAttributes="Bold" VerticalOptions="Center" />
+                            </Grid>
+
+                            <VerticalStackLayout IsVisible="False" Margin="0,5,0,0">
+                                <Button Style="{x:Null}"
+                                        Text="SİL"
+                                        Clicked="OnSetSilClicked"
+                                        CommandParameter="{Binding Gecmis}"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="#ef4444"
+                                        BorderWidth="2"
+                                        TextColor="#ef4444"
+                                        FontAttributes="Bold"
+                                        CornerRadius="8"
+                                        HeightRequest="40">
+                                    <Button.Shadow>
+                                        <Shadow Brush="#ef4444" Offset="0,0" Radius="15" Opacity="0.8" />
+                                    </Button.Shadow>
+                                </Button>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

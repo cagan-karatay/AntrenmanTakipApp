@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using AntrenmanTakipApp.Data; 
 using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace AntrenmanTakipApp
 {
@@ -22,7 +23,8 @@ namespace AntrenmanTakipApp
             builder.Services.AddSingleton<DatabaseService>();
 
 
-            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<AnaSayfaWrapper>();
+            builder.Services.AddTransient<KategoriPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();
