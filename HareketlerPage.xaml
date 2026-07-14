@@ -8,31 +8,40 @@
         <ToolbarItem Text="+" Clicked="OnEkleClicked" />
     </ContentPage.ToolbarItems>
 
-    <CollectionView x:Name="HareketlerListesi" Margin="30, 20, 30, 30">
+    <ScrollView>
+        <VerticalStackLayout x:Name="HareketlerListesi" Margin="30, 20, 30, 30" Spacing="10">
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+                                <SwipeItemView Invoked="OnSilInvoked" CommandParameter="{Binding .}">
+                                    <Border BackgroundColor="#ef4444" StrokeThickness="0" HeightRequest="80" WidthRequest="80" Margin="10, 0, 0, 0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="15" />
+                                        </Border.StrokeShape>
+                                        <Label Text="X" TextColor="White" FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
 
-                <Border BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80" Margin="0, 0, 0, 10">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="15" />
-                    </Border.StrokeShape>
+                        <Border BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="80">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15" />
+                            </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnHareketTapped" />
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout Padding="20" VerticalOptions="Center">
+                                <Label Text="{Binding Ad}" TextColor="White" FontSize="22" FontAttributes="Bold" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
 
-                    <Border.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnHareketTapped" />
-                    </Border.GestureRecognizers>
-
-                    <HorizontalStackLayout Padding="20" VerticalOptions="Center">
-                        <Label Text="{Binding Ad}"
-                               TextColor="White"
-                               FontSize="22"
-                               FontAttributes="Bold"
-                               VerticalOptions="Center" />
-                    </HorizontalStackLayout>
-                </Border>
-
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

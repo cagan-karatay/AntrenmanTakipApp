@@ -3,31 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AntrenmanTakipApp.HareketEklePage"
              BackgroundColor="#282b30"
-             Title="Yeni Hareket Ekle">
+             Title="Hareket Ekle">
 
-    <VerticalStackLayout Padding="30" Spacing="20">
+    <VerticalStackLayout VerticalOptions="Start" Spacing="20" Padding="20" Margin="0,10,0,0">
 
-        <Label Text="Hareketin Adı:"
-               TextColor="White"
-               FontSize="18"
-               FontAttributes="Bold" />
+        <Border BackgroundColor="#36393e" StrokeThickness="0" Padding="15">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15" />
+            </Border.StrokeShape>
 
-        <Entry x:Name="HareketAdiEntry"
-               Placeholder="Örn: Lat Pulldown"
-               PlaceholderColor="#94a3b8"
-               TextColor="White"
-               BackgroundColor="#36393e"
-               ClearButtonVisibility="WhileEditing" />
+            <VerticalStackLayout Spacing="15">
+                <Label Text="HAREKET ADI" TextColor="#94a3b8" FontSize="12" FontAttributes="Bold" />
 
-        <Button Text="Kaydet"
-                BackgroundColor="#8b5cf6"
-                TextColor="White"
-                FontAttributes="Bold"
-                CornerRadius="10"
-                HeightRequest="50"
-                Margin="0, 20, 0, 0"
-                Clicked="OnKaydetClicked" />
+                <Entry x:Name="HareketAdiEntry" 
+                       Placeholder="Örn: Bench Press..." 
+                       TextColor="White" 
+                       FontSize="18"
+                       TextChanged="OnHareketTextChanged" />
+
+                <Button Style="{x:Null}" 
+                        Text="KAYDET" 
+                        Clicked="OnKaydetClicked" 
+                        BackgroundColor="#22ff00" 
+                        TextColor="#1e1e1e" 
+                        FontAttributes="Bold" 
+                        CornerRadius="10" 
+                        HeightRequest="50">
+                    <Button.Shadow>
+                        <Shadow Brush="#22ff00" Offset="0,0" Radius="10" Opacity="0.3" />
+                    </Button.Shadow>
+                </Button>
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="Hazır Hareketler" TextColor="#ff6a00" FontAttributes="Bold" FontSize="18" Margin="5,10,0,0">
+            <Label.Shadow>
+                <Shadow Brush="#ff6a00" Offset="0,0" Radius="10" Opacity="0.6" />
+            </Label.Shadow>
+        </Label>
+
+        <CollectionView x:Name="HazirHareketlerListesi" 
+                        SelectionMode="Single" 
+                        SelectionChanged="OnHazirHareketSelected" 
+                        HeightRequest="400">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#36393e" StrokeThickness="0" Margin="0,0,0,8" Padding="15">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding .}" TextColor="White" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
     </VerticalStackLayout>
-
 </ContentPage>

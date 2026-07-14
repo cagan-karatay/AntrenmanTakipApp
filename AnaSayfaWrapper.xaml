@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AntrenmanTakipApp.AnaSayfaWrapper"
+             BackgroundColor="#282b30"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="*, Auto">
+
+        <ContentView x:Name="AnaIcerik" Grid.Row="0" />
+
+        <Grid Grid.Row="1" HeightRequest="100" Margin="20,0,20,20" VerticalOptions="End">
+
+            <Border BackgroundColor="#36393e" StrokeThickness="0" HeightRequest="70" VerticalOptions="End">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="35" />
+                </Border.StrokeShape>
+            </Border>
+
+            <Grid ColumnDefinitions="*, *, *">
+
+                <Border Grid.Column="0" 
+                        x:Name="SolMenuButton"
+                        BackgroundColor="Transparent"
+                        StrokeThickness="0"
+                        WidthRequest="110" 
+                        HeightRequest="50"
+                        VerticalOptions="End"
+                        Margin="0,0,0,10">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSolMenuClicked" />
+                    </Border.GestureRecognizers>
+
+                    <Image Source="folder.png" WidthRequest="28" HeightRequest="28" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+
+                <Border Grid.Column="1" 
+                        x:Name="OrtaMenuButton"
+                        BackgroundColor="#22ff00" 
+                        StrokeThickness="0"
+                        WidthRequest="80" 
+                        HeightRequest="80"
+                        VerticalOptions="Start"
+                        TranslationY="-10">
+                    <Border.Shadow>
+                        <Shadow Brush="#22ff00" Offset="0,0" Radius="40" Opacity="0.6" />
+                    </Border.Shadow>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="40" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnOrtaMenuClicked" />
+                    </Border.GestureRecognizers>
+
+                    <Image Source="home2.png" WidthRequest="34" HeightRequest="34" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+
+                <Border Grid.Column="2" 
+                        x:Name="SagMenuButton"
+                        BackgroundColor="Transparent"
+                        StrokeThickness="0"
+                        WidthRequest="110" 
+                        HeightRequest="50"
+                        VerticalOptions="End"
+                        Margin="0,0,0,10">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25" />
+                    </Border.StrokeShape>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSagMenuClicked" />
+                    </Border.GestureRecognizers>
+
+                    <Image Source="grafik.png" WidthRequest="28" HeightRequest="28" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
