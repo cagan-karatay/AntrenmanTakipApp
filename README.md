@@ -2,8 +2,8 @@
 
 Uygulamayı telefonunuza doğrudan kurmak için cihazınızın işlemci mimarisine uygun olan APK dosyasını indirebilirsiniz:
 
-* 🚀 [Samsung S26 Ultra ve Modern 64-bit Cihazlar İçin APK İndir (arm64)](https://github.com/cagan-karatay/AntrenmanTakipApp/releases/download/v1.3/AntrenmanTakip-v1.3-arm64-ModernCihazlar.apk)
-* 📱 [Tecno ve Bütçe Dostu 32-bit Cihazlar İçin APK İndir (arm)](https://github.com/cagan-karatay/AntrenmanTakipApp/releases/download/v1.3/AntrenmanTakip-v1.3-arm-EskiCihazlar.apk)
+* 🚀 [64-bit Cihazlar İçin APK İndir (arm64)](https://github.com/cagan-karatay/AntrenmanTakipApp/releases/download/v1.3/AntrenmanTakip-v1.3-arm64-ModernCihazlar.apk)
+* 📱 [32-bit Cihazlar İçin APK İndir (arm)](https://github.com/cagan-karatay/AntrenmanTakipApp/releases/download/v1.3/AntrenmanTakip-v1.3-arm-EskiCihazlar.apk)
 
 # 🏋️‍♂️ Antrenman Takip App (Fitness Tracker)
 
